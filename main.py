@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/forks', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_forks():
     user_name = request.args.get('user')
     repo_name = request.args.get('repo')
@@ -21,4 +21,4 @@ def get_forks():
     
     repo_info = response.json()
     
-    return jsonify(repo_info)
+    return jsonify({repo_info})
